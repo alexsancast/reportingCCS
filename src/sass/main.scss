@@ -1,0 +1,70 @@
+@use "base/variable";
+@use "base/reset";
+
+
+
+.main-container-menu {
+    background: #65dd75;
+    width: 17%;
+    height: 100%;
+
+
+    .container-user {
+        padding: 0.9em;
+        border-bottom: 1px solid white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+
+        .container-icon {
+            margin-right: 0.5em;
+            color: white;
+        }
+
+
+        label {
+            font-family: variable.$font-menu;
+            color: white;
+        }
+    }
+
+    .container-menu-logout {
+        margin-top: 400px;
+        padding: 0.9em;
+        border-top: 1px solid white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+
+        .container-icon-logout {
+
+            margin-right: 1em;
+            color: white;
+
+        }
+
+        label {
+            color: white;
+            font-family: variable.$font-menu;
+        }
+
+
+
+
+    }
+
+
+}
+
+ul {
+    li {
+        padding: 0.9em;
+
+        a {
+            color: variable.$font-label-menu;
+            font-family: variable.$font-menu;
+        }
+
+
+    }
+}
