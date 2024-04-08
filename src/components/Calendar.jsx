@@ -17,7 +17,6 @@ export default function DatePickerValue() {
                     value={value}
                     onChange={(newValue) => setValue(newValue)} />
             </DemoContainer>
-            <button onClick={() => console.log(value)}>Test</button>
         </LocalizationProvider>
     );
 }

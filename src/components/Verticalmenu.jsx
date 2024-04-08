@@ -23,8 +23,8 @@ export default function Verticalmenu() {
             <div className="container-user"> <FaUserCircle size={27} className="container-icon" /> <label> Hi User </label> </div>
             <div className="cotainer-menu">
                 <ul className="ul">
-                    <li>
-                        <a href="#" onClick={openModal}> Reporte general</a>
+                    <li onClick={openModal}>
+                        <a href="#" > Reporte general</a>
                     </li>
 
                     <li>

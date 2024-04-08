@@ -4,9 +4,11 @@
 
 
 .main-container-menu {
-    background: #65dd75;
+    background: #09af1f;
     width: 17%;
     height: 100%;
+
+
 
 
     .container-user {
@@ -15,6 +17,8 @@
         text-align: center;
         display: flex;
         align-items: center;
+
+
 
         .container-icon {
             margin-right: 0.5em;
@@ -60,10 +64,18 @@ ul {
     li {
         padding: 0.9em;
 
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(31, 202, 73);
+        }
+
         a {
             color: variable.$font-label-menu;
             font-family: variable.$font-menu;
+
+
         }
+
 
 
     }

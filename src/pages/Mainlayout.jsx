@@ -3,6 +3,7 @@ import Verticalmenu from "../components/Verticalmenu"
 import "../sass/main.scss"
 
 
+
 export default function Mainlayout({ childen }) {
     return <>
         <Verticalmenu />

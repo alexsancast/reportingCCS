@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Buttons from "./Button"
 import DatePickerValue from './Calendar';
+import UnstyledSelectControlled from './Select';
 
 
 const style = {
@@ -34,6 +35,8 @@ export default function BasicModal({ onClose }) {
                     Reporte General
                 </Typography>
                 <DatePickerValue />
+
+                <UnstyledSelectControlled />
                 <Buttons />
 
             </Box>
