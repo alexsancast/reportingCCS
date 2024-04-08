@@ -20,7 +20,7 @@ export default function Verticalmenu() {
 
     return <>
         <div className="main-container-menu">
-            <div className="container-user"> <FaUserCircle size={27} className="container-icon" /> <label> Hi User !</label> </div>
+            <div className="container-user"> <FaUserCircle size={27} className="container-icon" /> <label> Hi User </label> </div>
             <div className="cotainer-menu">
                 <ul className="ul">
                     <li>
