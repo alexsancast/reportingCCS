@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import Buttons from "./Button"
 import DatePickerValue from './Calendar';
 import UnstyledSelectControlled from './Select';
+import "../sass/modal.scss"
 
 
 const style = {
@@ -19,8 +20,8 @@ const style = {
     p: 4,
 };
 
-export default function BasicModal({ onClose }) {
-
+export function Generalreport({ onClose, report }) {
+    console.log(report)
 
     return (
 
@@ -31,16 +32,39 @@ export default function BasicModal({ onClose }) {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Reporte General
-                </Typography>
-                <DatePickerValue />
+                <div className='main-container-modal'>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        {report === 0 && (<h2>Reporte General</h2>)}
+                        {report === 1 && (<h2>Reporte individual por ventas</h2>)}
+                        {report === 2 && (<h2>Reporte por compania</h2>)}
+                    </Typography>
+                    {report === 0 ? <div className='container-picker'><DatePickerValue /> </div> :
+                        report === 2 ? <>
+                            <div className='container-picker-date'>
+                                <DatePickerValue />
+                            </div>
+                            <div className='container-picker-date-select'>
+                                <UnstyledSelectControlled />
+                            </div>
+                        </> :
+                            <>
+                                <div className='container-picker-date'>
+                                    <DatePickerValue />
+                                </div>
+                                <div className='container-picker-date-select'>
+                                    <UnstyledSelectControlled />
+                                </div>
 
-                <UnstyledSelectControlled />
-                <Buttons />
-
+                            </>}
+                    <Buttons />
+                </div>
             </Box>
-        </Modal>
+
+
+
+        </Modal >
 
     );
 }
+
+

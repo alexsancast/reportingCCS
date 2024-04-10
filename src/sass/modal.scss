@@ -1,0 +1,18 @@
+@use "base/variable";
+@use "base/reset";
+
+.main-container-modal {
+
+    .container-picker {
+        margin-bottom: 10px;
+    }
+
+    .container-picker-date {
+        margin-bottom: 15px;
+    }
+
+    .container-picker-date-select {
+        margin-bottom: 12px;
+    }
+
+}

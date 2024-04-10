@@ -4,95 +4,96 @@ import { Select as BaseSelect, selectClasses } from '@mui/base/Select';
 import { Option as BaseOption, optionClasses } from '@mui/base/Option';
 import { styled } from '@mui/system';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
+import { useState } from 'react';
 
 export default function UnstyledSelectControlled() {
-    const [value, setValue] = React.useState(10);
+  const [value, setValue] = useState("Alex");
 
-    return (
-        <div>
-            <Select value={value} onChange={(_, newValue) => setValue(newValue)}>
-                <Option value="Option">Ten</Option>
-                <Option value="Twenty">Twenty</Option>
-                <Option value="Thirty">Thirty</Option>
-            </Select>
+  return (
+    <div>
+      <Select value={value} onChange={(_, newValue) => setValue(newValue)}>
+        <Option value="Option">Ten</Option>
+        <Option value="Twenty">Twenty</Option>
+        <Option value="Thirty">Thirty</Option>
+      </Select>
 
-            <Paragraph>Selected value: {value}</Paragraph>
-        </div>
-    );
+      {/* <Paragraph>Selected value: {value}</Paragraph> */}
+    </div>
+  );
 }
 
 function Select(props) {
-    const slots = {
-        root: StyledButton,
-        listbox: Listbox,
-        popup: Popup,
-        ...props.slots,
-    };
+  const slots = {
+    root: StyledButton,
+    listbox: Listbox,
+    popup: Popup,
+    ...props.slots,
+  };
 
-    return <BaseSelect {...props} slots={slots} />;
+  return <BaseSelect {...props} slots={slots} />;
 }
 
 Select.propTypes = {
-    /**
-     * The components used for each slot inside the Select.
-     * Either a string to use a HTML element or a component.
-     * @default {}
-     */
-    slots: PropTypes.shape({
-        listbox: PropTypes.elementType,
-        popup: PropTypes.elementType,
-        root: PropTypes.elementType,
-    }),
+  /**
+   * The components used for each slot inside the Select.
+   * Either a string to use a HTML element or a component.
+   * @default {}
+   */
+  slots: PropTypes.shape({
+    listbox: PropTypes.elementType,
+    popup: PropTypes.elementType,
+    root: PropTypes.elementType,
+  }),
 };
 
 const blue = {
-    100: '#DAECFF',
-    200: '#99CCF3',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    900: '#003A75',
+  100: '#DAECFF',
+  200: '#99CCF3',
+  400: '#3399FF',
+  500: '#007FFF',
+  600: '#0072E5',
+  900: '#003A75',
 };
 
 const grey = {
-    50: '#F3F6F9',
-    100: '#E5EAF2',
-    200: '#DAE2ED',
-    300: '#C7D0DD',
-    400: '#B0B8C4',
-    500: '#9DA8B7',
-    600: '#6B7A90',
-    700: '#434D5B',
-    800: '#303740',
-    900: '#1C2025',
+  50: '#F3F6F9',
+  100: '#E5EAF2',
+  200: '#DAE2ED',
+  300: '#C7D0DD',
+  400: '#B0B8C4',
+  500: '#9DA8B7',
+  600: '#6B7A90',
+  700: '#434D5B',
+  800: '#303740',
+  900: '#1C2025',
 };
 
 const CustomButton = React.forwardRef(function CustomButton(props, ref) {
-    const { ownerState, ...other } = props;
-    return (
-        <button
-            type="button"
-            {...other}
-            ref={ref}
-            style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-            }}
-        >
-            <span>{other.children}</span>
-            <UnfoldMoreRoundedIcon />
-        </button>
-    );
+  const { ownerState, ...other } = props;
+  return (
+    <button
+      type="button"
+      {...other}
+      ref={ref}
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
+      <span>{other.children}</span>
+      <UnfoldMoreRoundedIcon />
+    </button>
+  );
 });
 
 CustomButton.propTypes = {
-    children: PropTypes.node,
-    ownerState: PropTypes.object.isRequired,
+  children: PropTypes.node,
+  ownerState: PropTypes.object.isRequired,
 };
 
 const StyledButton = styled(CustomButton, { shouldForwardProp: () => true })(
-    ({ theme }) => `
+  ({ theme }) => `
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
@@ -129,7 +130,7 @@ const StyledButton = styled(CustomButton, { shouldForwardProp: () => true })(
 );
 
 const Listbox = styled('ul')(
-    ({ theme }) => `
+  ({ theme }) => `
   font-family: 'IBM Plex Sans', sans-serif;
   position:realt;
   font-size: 0.875rem;
@@ -144,12 +145,12 @@ const Listbox = styled('ul')(
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   box-shadow: 0px 2px 6px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.50)' : 'rgba(0,0,0, 0.05)'
-        };
+    };
   `,
 );
 
 const Option = styled(BaseOption)(
-    ({ theme }) => `
+  ({ theme }) => `
   list-style: none;
   padding: 8px;
   border-radius: 8px;
@@ -196,7 +197,7 @@ const Popup = styled('div')`
 `;
 
 const Paragraph = styled('p')(
-    ({ theme }) => `
+  ({ theme }) => `
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
   margin: 10px 0;
