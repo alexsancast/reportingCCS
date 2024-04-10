@@ -3,6 +3,7 @@ import { Generalreport } from "./Modal";
 import { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
+import { IoIosArrowForward } from "react-icons/io";
 
 
 
@@ -36,17 +37,20 @@ export default function Verticalmenu() {
             <div className="container-user"> <FaUserCircle size={27} className="container-icon" /> <label> Hi User </label> </div>
             <div className="cotainer-menu">
                 <ul className="ul">
-                    <li id="1" onClick={openModalG}>
+                    <li onClick={openModalG}>
                         <a href="#" > Reporte general</a>
+                        <IoIosArrowForward className="img-arrow" />
                     </li>
 
-                    <li id="2" onClick={openModalI}>
+                    <li onClick={openModalI}>
                         <a href="#"> Reporte detallado de ventas</a>
+                        <IoIosArrowForward className="img-arrow" />
                     </li>
 
 
-                    <li id="3" onClick={openModalD}>
+                    <li onClick={openModalD}>
                         <a href="#" > Reporte por compania</a>
+                        <IoIosArrowForward className="img-arrow" />
                     </li>
                 </ul>
             </div>

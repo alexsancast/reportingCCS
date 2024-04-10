@@ -65,6 +65,14 @@
 ul {
     li {
         padding: 0.9em;
+        display: flex;
+        align-items: center;
+
+
+        .img-arrow {
+            color: white;
+            margin-left: 10px;
+        }
 
         &:hover {
             cursor: pointer;
