@@ -1,63 +1,65 @@
 @use "base/variable";
 @use "base/reset";
 
+.main-container-layout {
+    height: 100%;
+
+    .horizontal-container {
+        height: 100%;
+        display: flex;
+        /* Utiliza Flexbox para establecer el diseño horizontal */
+        align-items: center;
+        /* Centra verticalmente los elementos */
+    }
+
+    .logo-container {
+        margin: 0 auto;
+        /* Empuja el logo al final del contenedor horizontal */
+    }
+
+    /* Ajusta el estilo del contenedor principal según tus necesidades */
+}
+
 
 
 .main-container-menu {
     background: #09af1f;
-    width: 17%;
-    height: 100%;
+    width: 300px;
+    height: 100vh;
+    /* Hace que el contenedor ocupe toda la altura de la pantalla */
 
+    display: flex;
+    flex-direction: column;
+    /* Alinear elementos en columna */
 
-
-
-    .container-user {
+    .container-user,
+    .container-menu-logout {
         padding: 0.9em;
-        border-bottom: 1px solid white;
         text-align: center;
         display: flex;
         align-items: center;
+        color: white;
+        font-family: variable.$font-menu;
+    }
 
-
-
-        .container-icon {
-            margin-right: 0.5em;
-            color: white;
-        }
-
-
-        label {
-            font-family: variable.$font-menu;
-            color: white;
-        }
+    .container-user {
+        border-bottom: 1px solid white;
     }
 
     .container-menu-logout {
-        margin-top: 400px;
-        padding: 0.9em;
+        margin-top: auto;
+        /* Empuja el menú de cierre de sesión hacia la parte inferior */
         border-top: 1px solid white;
-        text-align: center;
-        display: flex;
-        align-items: center;
-
-        .container-icon-logout {
-
-            margin-right: 1em;
-            color: white;
-
-        }
-
-        label {
-            color: white;
-            font-family: variable.$font-menu;
-        }
-
-
-
-
     }
 
+    .container-icon,
+    .container-icon-logout {
+        margin-right: 0.5em;
+    }
 
+    label {
+        color: white;
+    }
 }
 
 ul {

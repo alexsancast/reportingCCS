@@ -6,6 +6,7 @@ import { LuLogOut } from "react-icons/lu";
 
 
 
+
 export default function Verticalmenu() {
     //Hooks para abrir los modal
     const [isModalOpenG, setIsModalOpenG] = useState(false);
@@ -55,6 +56,7 @@ export default function Verticalmenu() {
                 <label>Salir</label>
             </div>
         </div>
+
         {isModalOpenG && <Generalreport report={report} onClose={closeModalG} />}
     </>
 }
