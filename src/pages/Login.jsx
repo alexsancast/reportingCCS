@@ -81,11 +81,11 @@ export default function SignInSide() {
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="email"
-                                label="Pin"
-                                name="pin"
-                                autoComplete="pin"
-                                autoFocus
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
                             />
 
                             <FormControlLabel
