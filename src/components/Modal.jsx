@@ -21,7 +21,11 @@ const style = {
 };
 
 export function Generalreport({ onClose, report }) {
-    console.log(report)
+    const [startDate, setStartDate] = React.useState(null);
+    const [endDate, setEndDate] = React.useState(null);
+    const [company, setCompany] = React.useState(null);
+
+
 
     return (
 
@@ -34,29 +38,26 @@ export function Generalreport({ onClose, report }) {
             <Box sx={style}>
                 <div className='main-container-modal'>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {report === 0 && (<h2>Reporte General</h2>)}
-                        {report === 1 && (<h2>Reporte individual por ventas</h2>)}
-                        {report === 2 && (<h2>Reporte por compania</h2>)}
+                        {report === 0 && (<h2>Reporte general</h2>)}
+                        {report === 1 && (<h2>Reporte individual por compania</h2>)}
+                        {report === 2 && (<h2>Reporte general por compania</h2>)}
                     </Typography>
-                    {report === 0 ? <div className='container-picker'><DatePickerValue /> </div> :
-                        report === 2 ? <>
-                            <div className='container-picker-date'>
-                                <DatePickerValue />
-                            </div>
-                            <div className='container-picker-date-select'>
-                                <UnstyledSelectControlled />
-                            </div>
-                        </> :
-                            <>
-                                <div className='container-picker-date'>
-                                    <DatePickerValue />
-                                </div>
-                                <div className='container-picker-date-select'>
-                                    <UnstyledSelectControlled />
-                                </div>
+                    <div className='container-picker-date'>
+                        <DatePickerValue
+                            startDate={startDate}
+                            setStartDate={setStartDate}
+                            endDate={endDate}
+                            setEndDate={setEndDate} />
+                    </div>
+                    {report !== 0 && (
+                        <div className='container-picker-date-select'>
+                            <UnstyledSelectControlled company={company} setCompany={setCompany} />
+                        </div>
+                    )}
 
-                            </>}
-                    <Buttons />
+
+
+                    <Buttons report={report} startDate={startDate} endDate={endDate} company={company} />
                 </div>
             </Box>
 

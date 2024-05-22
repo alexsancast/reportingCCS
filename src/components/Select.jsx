@@ -4,17 +4,17 @@ import { Select as BaseSelect, selectClasses } from '@mui/base/Select';
 import { Option as BaseOption, optionClasses } from '@mui/base/Option';
 import { styled } from '@mui/system';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
-import { useState } from 'react';
+import { Compare } from '@mui/icons-material';
 
-export default function UnstyledSelectControlled() {
-  const [value, setValue] = useState("Alex");
+export default function UnstyledSelectControlled({ company, setCompany }) {
 
   return (
     <div>
-      <Select value={value} onChange={(_, newValue) => setValue(newValue)}>
-        <Option value="Option">Ten</Option>
-        <Option value="Twenty">Twenty</Option>
-        <Option value="Thirty">Thirty</Option>
+      <Select value={company} onChange={(_, newValue) => setCompany(newValue)}>
+        <Option value="Option">ADUANAS</Option>
+        <Option value="Twenty">AVIAM</Option>
+        <Option value="Thirty">CCS</Option>
+        <Option value="Thirty">MODESTO GUZMAN</Option>
       </Select>
 
       {/* <Paragraph>Selected value: {value}</Paragraph> */}
