@@ -43,13 +43,13 @@ export default function Verticalmenu() {
                     </li>
 
                     <li onClick={openModalI}>
-                        <a href="#"> Reporte detallado de ventas</a>
+                        <a href="#"> Reporte general por compañia</a>
                         <IoIosArrowForward className="img-arrow" />
                     </li>
 
 
                     <li onClick={openModalD}>
-                        <a href="#" > Reporte por compania</a>
+                        <a href="#" > Reporte detallado por compañia</a>
                         <IoIosArrowForward className="img-arrow" />
                     </li>
                 </ul>

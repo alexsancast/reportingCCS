@@ -17,7 +17,7 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
           apiUrl = `http://172.20.3.176:8000/general/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 1:
-          apiUrl = `http://172.20.3.176:8000/detailed/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
+          apiUrl = `http://172.20.3.176:8000/detail_company/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 2:
           apiUrl = `http://172.20.3.176:8000/individual/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
@@ -54,6 +54,7 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
     console.log('Nombre de la compañía:', company);
     console.log('Report:', report);
     onClose();
+    fetchData();
 
 
 
