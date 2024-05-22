@@ -37,10 +37,10 @@ export function Generalreport({ onClose, report }) {
         >
             <Box sx={style}>
                 <div className='main-container-modal'>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    <Typography id="modal-modal-title" variant="h6" component="h1">
                         {report === 0 && (<h2>Reporte general</h2>)}
-                        {report === 1 && (<h2>Reporte individual por compania</h2>)}
-                        {report === 2 && (<h2>Reporte general por compania</h2>)}
+                        {report === 1 && (<h2>Reporte individual por compañia</h2>)}
+                        {report === 2 && (<h2>Reporte general por compañia</h2>)}
                     </Typography>
                     <div className='container-picker-date'>
                         <DatePickerValue
@@ -57,7 +57,8 @@ export function Generalreport({ onClose, report }) {
 
 
 
-                    <Buttons report={report} startDate={startDate} endDate={endDate} company={company} />
+                    <Buttons report={report}
+                        onClose={onClose} startDate={startDate} endDate={endDate} company={company} />
                 </div>
             </Box>
 

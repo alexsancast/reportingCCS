@@ -2,23 +2,25 @@ import * as React from 'react';
 import { Button as BaseButton, buttonClasses } from '@mui/base/Button';
 import { styled } from '@mui/system';
 import Stack from '@mui/material/Stack';
+import dayjs from 'dayjs';
 
-export default function Buttons({ report, startDate, endDate, company }) {
+export default function Buttons({ report, startDate, endDate, company, onClose }) {
 
   const fetchData = async () => {
+
     try {
       let apiUrl = '';
 
       // Construye la URL de la API basada en el tipo de reporte seleccionado
       switch (report) {
         case 0:
-          apiUrl = `http://172.20.3.176:8000/general/${startDate}/${endDate}`;
+          apiUrl = `http://172.20.3.176:8000/general/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 1:
-          apiUrl = `http://172.20.3.176:8000/detailed/${company}/${startDate}/${endDate}`;
+          apiUrl = `http://172.20.3.176:8000/detailed/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 2:
-          apiUrl = `http://172.20.3.176:8000/individual/${company}/${startDate}/${endDate}`;
+          apiUrl = `http://172.20.3.176:8000/individual/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         default:
           break;
@@ -47,12 +49,14 @@ export default function Buttons({ report, startDate, endDate, company }) {
   };
 
   const handleButtonClick = () => {
-    console.log('Fecha de inicio seleccionada:', startDate);
-    console.log('Fecha de fin seleccionada:', endDate);
-    console.log('Nombre de la compania:', company);
+    console.log('Fecha de inicio seleccionada:', dayjs(startDate).format('YYYY-MM-DD'));
+    console.log('Fecha de fin seleccionada:', dayjs(endDate).format('YYYY-MM-DD'));
+    console.log('Nombre de la compañía:', company);
     console.log('Report:', report);
+    onClose();
 
-    fetchData();
+
+
   };
   return (
     <Stack spacing={4} direction="row">

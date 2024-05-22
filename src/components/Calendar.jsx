@@ -1,5 +1,4 @@
 import * as React from 'react';
-import dayjs from 'dayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -9,12 +8,12 @@ export default function DatePickerValue({ startDate, setStartDate, endDate, setE
 
     const handleStartDateChange = (newValue) => {
         setStartDate(newValue);
-        console.log('Fecha de inicio:', newValue);
+
     };
 
     const handleEndDateChange = (newValue) => {
         setEndDate(newValue);
-        console.log('Fecha de fin:', newValue);
+
     };
 
     return (

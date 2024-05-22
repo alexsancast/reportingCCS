@@ -11,13 +11,11 @@ export default function UnstyledSelectControlled({ company, setCompany }) {
   return (
     <div>
       <Select value={company} onChange={(_, newValue) => setCompany(newValue)}>
-        <Option value="Option">ADUANAS</Option>
-        <Option value="Twenty">AVIAM</Option>
-        <Option value="Thirty">CCS</Option>
-        <Option value="Thirty">MODESTO GUZMAN</Option>
+        <Option value="ADUANAS">ADUANAS</Option>
+        <Option value="AVIAM">AVIAM</Option>
+        <Option value="CCS">CCS</Option>
+        <Option value="MODESTO GUZMAN">MODESTO GUZMAN</Option>
       </Select>
-
-      {/* <Paragraph>Selected value: {value}</Paragraph> */}
     </div>
   );
 }
