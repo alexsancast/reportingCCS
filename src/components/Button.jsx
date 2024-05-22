@@ -5,19 +5,44 @@ import Stack from '@mui/material/Stack';
 
 export default function Buttons({ report, startDate, endDate, company }) {
 
-  const fetchData = () => {
-    switch (report) {
-      case 0:
-        fetchGeneralReport();
-        break;
-      case 1:
-        fetchDetailedReport();
-        break;
-      case 2:
-        fetchCompanyReport();
-        break;
-      default:
-        break;
+  const fetchData = async () => {
+    try {
+      let apiUrl = '';
+
+      // Construye la URL de la API basada en el tipo de reporte seleccionado
+      switch (report) {
+        case 0:
+          apiUrl = `http://172.20.3.176:8000/general/${startDate}/${endDate}`;
+          break;
+        case 1:
+          apiUrl = `http://172.20.3.176:8000/detailed/${company}/${startDate}/${endDate}`;
+          break;
+        case 2:
+          apiUrl = `http://172.20.3.176:8000/individual/${company}/${startDate}/${endDate}`;
+          break;
+        default:
+          break;
+      }
+
+      // Realiza la solicitud a la API usando fetch
+      const response = await fetch(apiUrl);
+
+      if (!response.ok) {
+        throw new Error('No se pudo completar la solicitud');
+      }
+
+      // Obtiene el contenido del archivo PDF como un Blob
+      const pdfBlob = await response.blob();
+
+      // Crea un objeto URL para el Blob
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+
+      // Abre el PDF en una nueva ventana o pestaña
+      window.open(pdfUrl);
+
+    } catch (error) {
+      console.error('Error al consultar la API:', error);
+      // Aquí puedes manejar errores de la solicitud a la API
     }
   };
 
@@ -26,7 +51,8 @@ export default function Buttons({ report, startDate, endDate, company }) {
     console.log('Fecha de fin seleccionada:', endDate);
     console.log('Nombre de la compania:', company);
     console.log('Report:', report);
-    // Aquí puedes agregar la lógica para manejar las fechas seleccionadas
+
+    fetchData();
   };
   return (
     <Stack spacing={4} direction="row">
