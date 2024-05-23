@@ -25,6 +25,7 @@ export function Generalreport({ onClose, report }) {
     const [startDate, setStartDate] = React.useState(null);
     const [endDate, setEndDate] = React.useState(null);
     const [company, setCompany] = React.useState(null);
+    const [ced, setCed] = React.useState(null);
 
 
 
@@ -59,13 +60,13 @@ export function Generalreport({ onClose, report }) {
 
                     {report === 3 && (
                         <div className='container-picker-date-select'>
-                            <Input />
+                            <Input setCed={setCed} />
                         </div>
                     )}
 
 
                     <Buttons report={report}
-                        onClose={onClose} startDate={startDate} endDate={endDate} company={company} />
+                        onClose={onClose} startDate={startDate} endDate={endDate} ced={ced} company={company} />
                 </div>
             </Box>
 
