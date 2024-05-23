@@ -32,6 +32,11 @@ export default function Verticalmenu() {
         setIsModalOpenG(false);
     };
 
+    const closeModalP = () => {
+        setIsModalOpenG(true);
+        setReport(3)
+    };
+
     return <>
         <div className="main-container-menu">
             <div className="container-user"> <FaUserCircle size={27} className="container-icon" /> <label> Hi User </label> </div>
@@ -50,6 +55,11 @@ export default function Verticalmenu() {
 
                     <li onClick={openModalD}>
                         <a href="#" > Reporte detallado por compañia</a>
+                        <IoIosArrowForward className="img-arrow" />
+                    </li>
+
+                    <li onClick={closeModalP}>
+                        <a href="#"> Reporte individual por persona</a>
                         <IoIosArrowForward className="img-arrow" />
                     </li>
                 </ul>

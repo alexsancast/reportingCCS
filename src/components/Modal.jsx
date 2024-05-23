@@ -41,6 +41,7 @@ export function Generalreport({ onClose, report }) {
                         {report === 0 && (<h2>Reporte general</h2>)}
                         {report === 1 && (<h2>Reporte individual por compañia</h2>)}
                         {report === 2 && (<h2>Reporte general por compañia</h2>)}
+                        {report === 3 && (<h2>Reporte individual por persona</h2>)}
                     </Typography>
                     <div className='container-picker-date'>
                         <DatePickerValue
