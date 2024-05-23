@@ -6,6 +6,7 @@ import Buttons from "./Button"
 import DatePickerValue from './Calendar';
 import UnstyledSelectControlled from './Select';
 import "../sass/modal.scss"
+import Input from './Input';
 
 
 const style = {
@@ -50,12 +51,17 @@ export function Generalreport({ onClose, report }) {
                             endDate={endDate}
                             setEndDate={setEndDate} />
                     </div>
-                    {report !== 0 && (
+                    {report !== 0 && report !== 3 && (
                         <div className='container-picker-date-select'>
                             <UnstyledSelectControlled company={company} setCompany={setCompany} />
                         </div>
                     )}
 
+                    {report === 3 && (
+                        <div className='container-picker-date-select'>
+                            <Input />
+                        </div>
+                    )}
 
 
                     <Buttons report={report}
