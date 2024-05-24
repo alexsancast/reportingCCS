@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import dayjs from 'dayjs';
 import Progress from './Progress';
 
-export default function Buttons({ report, startDate, endDate, company, onClose }) {
+export default function Buttons({ report, startDate, endDate, company, ced }) {
   const [loading, setLoading] = React.useState(false);
 
   const fetchData = async () => {
@@ -26,7 +26,7 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
           apiUrl = `http://172.20.3.176:8000/individual_company/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 3:
-          apiUrl = `http://172.20.3.176:8000/##/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
+          apiUrl = `http://172.20.3.176:8000/person/${ced}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         default:
           break;
@@ -35,7 +35,7 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
       // Realiza la solicitud a la API usando fetch
 
       setTimeout(async () => {
-        // Realiza la solicitud a la API usando fetch
+
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
@@ -61,7 +61,7 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
 
   const handleButtonClick = () => {
     fetchData();
-    onClose();
+
 
   };
   return (
