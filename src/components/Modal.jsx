@@ -21,7 +21,7 @@ const style = {
     p: 4,
 };
 
-export function Generalreport({ onClose, report }) {
+export function Generalreport({ onClose, report, companies }) {
     const [startDate, setStartDate] = React.useState(null);
     const [endDate, setEndDate] = React.useState(null);
     const [company, setCompany] = React.useState(null);
@@ -54,7 +54,7 @@ export function Generalreport({ onClose, report }) {
                     </div>
                     {report !== 0 && report !== 3 && (
                         <div className='container-picker-date-select'>
-                            <UnstyledSelectControlled company={company} setCompany={setCompany} />
+                            <UnstyledSelectControlled company={company} companies={companies} setCompany={setCompany} />
                         </div>
                     )}
 
