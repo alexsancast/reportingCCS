@@ -13,7 +13,7 @@ export default function UnstyledSelectControlled({ companies, company, setCompan
       <Select value={company} onChange={(_, newValue) => setCompany(newValue)}>
 
         {companies.map((companyname, index) => (
-          <Option value={companyname.name}> {companyname.name} </Option>
+          <Option value={companyname.groupname}> {companyname.groupname} </Option>
         ))}
 
       </Select>
