@@ -1,7 +1,7 @@
 import Verticalmenu from "../components/Verticalmenu"
 import "../sass/main.scss"
 import Logo from "../components/Logo"
-import Input from "../components/Input"
+
 
 
 

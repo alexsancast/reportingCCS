@@ -3,10 +3,13 @@ import { Button as BaseButton, buttonClasses } from '@mui/base/Button';
 import { styled } from '@mui/system';
 import Stack from '@mui/material/Stack';
 import dayjs from 'dayjs';
+import Progress from './Progress';
 
 export default function Buttons({ report, startDate, endDate, company, onClose }) {
+  const [loading, setLoading] = React.useState(false);
 
   const fetchData = async () => {
+    setLoading(true)
 
     try {
       let apiUrl = '';
@@ -30,42 +33,41 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
       }
 
       // Realiza la solicitud a la API usando fetch
-      const response = await fetch(apiUrl);
 
-      if (!response.ok) {
-        throw new Error('No se pudo completar la solicitud');
-      }
+      setTimeout(async () => {
+        // Realiza la solicitud a la API usando fetch
+        const response = await fetch(apiUrl);
 
-      // Obtiene el contenido del archivo PDF como un Blob
-      const pdfBlob = await response.blob();
+        if (!response.ok) {
+          throw new Error('No se pudo completar la solicitud');
+        }
 
-      // Crea un objeto URL para el Blob
-      const pdfUrl = URL.createObjectURL(pdfBlob);
+        // Obtiene el contenido del archivo PDF como un Blob
+        const pdfBlob = await response.blob();
 
-      // Abre el PDF en una nueva ventana o pestaña
-      window.open(pdfUrl);
+        // Crea un objeto URL para el Blob
+        const pdfUrl = URL.createObjectURL(pdfBlob);
 
+        // Abre el PDF en una nueva ventana o pestaña
+        window.open(pdfUrl);
+
+        setLoading(false); // Desactivar el estado de carga
+      }, 2000); // 2 segundos de retraso
     } catch (error) {
       console.error('Error al consultar la API:', error);
-      // Aquí puedes manejar errores de la solicitud a la API
+      setLoading(false); // Desactivar el estado de carga en caso de error
     }
   };
 
   const handleButtonClick = () => {
-    console.log('Fecha de inicio seleccionada:', dayjs(startDate).format('YYYY-MM-DD'));
-    console.log('Fecha de fin seleccionada:', dayjs(endDate).format('YYYY-MM-DD'));
-    console.log('Nombre de la compañía:', company);
-    console.log('Report:', report);
+    fetchData();
     onClose();
-
-
-
 
   };
   return (
     <Stack spacing={4} direction="row">
       <Button onClick={handleButtonClick}>
-        Generar Reporte
+        {loading ? <Progress /> : 'Generar Reporte'}
       </Button>
     </Stack>
   );
