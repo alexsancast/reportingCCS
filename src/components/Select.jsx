@@ -13,7 +13,7 @@ export default function UnstyledSelectControlled({ companies, company, setCompan
       <Select value={company} onChange={(_, newValue) => setCompany(newValue)}>
 
         {companies.map((companyname, index) => (
-          <Option value={companyname.groupname}> {companyname.groupname} </Option>
+          <Option value={companyname}> {companyname} </Option>
         ))}
 
       </Select>
@@ -137,6 +137,8 @@ const Listbox = styled('ul')(
   padding: 6px;
   margin: 12px 0;
   min-width: 320px;
+  max-height: 200px;  
+  overflow-y: auto;
   border-radius: 12px;
   overflow: auto;
   outline: 0px;
