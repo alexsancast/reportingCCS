@@ -6,15 +6,16 @@ import { styled } from '@mui/system';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
 import { Compare } from '@mui/icons-material';
 
-export default function UnstyledSelectControlled({ company, setCompany }) {
+export default function UnstyledSelectControlled({ companies, company, setCompany }) {
 
   return (
     <div>
       <Select value={company} onChange={(_, newValue) => setCompany(newValue)}>
-        <Option value="ADUANAS">ADUANAS</Option>
-        <Option value="AVIAM">AVIAM</Option>
-        <Option value="CCS">CCS</Option>
-        <Option value="MODESTO GUZMAN">MODESTO GUZMAN</Option>
+
+        {data.map((companies, index) => (
+          <Option value={companies.name}> {companies.name} </Option>
+        ))}
+
       </Select>
     </div>
   );
