@@ -12,8 +12,8 @@ export default function UnstyledSelectControlled({ companies, company, setCompan
     <div>
       <Select value={company} onChange={(_, newValue) => setCompany(newValue)}>
 
-        {data.map((companies, index) => (
-          <Option value={companies.name}> {companies.name} </Option>
+        {companies.map((companyname, index) => (
+          <Option value={companyname.name}> {companyname.name} </Option>
         ))}
 
       </Select>
