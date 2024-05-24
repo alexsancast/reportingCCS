@@ -61,6 +61,7 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
 
   const handleButtonClick = () => {
     fetchData();
+    onClose();
     
 
   };
