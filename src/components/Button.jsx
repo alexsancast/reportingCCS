@@ -17,13 +17,13 @@ export default function Buttons({ report, startDate, endDate, company, onClose }
       // Construye la URL de la API basada en el tipo de reporte seleccionado
       switch (report) {
         case 0:
-          apiUrl = `http://172.20.3.176:8000/general/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
+          apiUrl = `http://172.20.3.176:8000/general_company/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 1:
           apiUrl = `http://172.20.3.176:8000/detail_company/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 2:
-          apiUrl = `http://172.20.3.176:8000/individual/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
+          apiUrl = `http://172.20.3.176:8000/individual_company/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
           break;
         case 3:
           apiUrl = `http://172.20.3.176:8000/##/${company}/${dayjs(startDate).format('YYYY-MM-DD')}/${dayjs(endDate).format('YYYY-MM-DD')}`;
