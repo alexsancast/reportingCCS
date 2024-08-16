@@ -41,9 +41,9 @@ export function Generalreport({ onClose, report, companies }) {
                 <div className='main-container-modal'>
                     <Typography id="modal-modal-title" variant="h6" component="h1">
                         {report === 0 && (<h2>Reporte general</h2>)}
-                        {report === 1 && (<h2>Reporte individual por compañia</h2>)}
-                        {report === 2 && (<h2>Reporte general por compañia</h2>)}
-                        {report === 3 && (<h2>Reporte individual por persona</h2>)}
+                        {report === 1 && (<h2>Reporte general por compañia</h2>)}
+                        {report === 2 && (<h2>Reporte detallado por compañia</h2>)}
+                        {report === 3 && (<h2>Reporte por cliente</h2>)}
                     </Typography>
                     <div className='container-picker-date'>
                         <DatePickerValue

@@ -79,7 +79,7 @@ export default function Verticalmenu() {
                     </li>
 
                     <li onClick={closeModalP}>
-                        <a href="#"> Reporte individual por persona</a>
+                        <a href="#"> Reporte por cliente</a>
                         <IoIosArrowForward className="img-arrow" />
                     </li>
                 </ul>
